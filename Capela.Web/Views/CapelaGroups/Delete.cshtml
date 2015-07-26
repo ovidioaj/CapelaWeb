@@ -1,0 +1,44 @@
+﻿@model Capela.Web.Entities.CapelaGroup
+
+
+<div class="container-fluid header-photo">
+    <h1>Deletando Pastoral</h1>
+</div>
+
+<div class="container">
+    <div class="form-horizontal">
+            <br/>
+            <h4>Deletando - @Model.Name</h4>
+            <hr />
+          
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Name, htmlAttributes: new { @class = "form-control text-box", @readonly = true })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Title, htmlAttributes: new { @class = "form-control text-box", @readonly=true })
+            </div>
+        </div>
+
+            @using (Html.BeginForm()) {
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <br />
+                        <input type="submit" value="Apagar Permanentemente" class="btn btn-danger" />
+                    </div>
+                </div>
+
+                <div>
+                    @Html.ActionLink("Cancelar Operação", "Index")
+                </div>
+            }
+    </div>
+</div>
+
+     

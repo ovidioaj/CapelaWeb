@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Capela.Web.Entities.CapelaGroup>
+
+    <div class="container-fluid" id="pastoral-header-container">
+        <div class="container">
+            <h1 id="pastoral-h1" style="color:white;">Pastorais</h1>
+            <p style="color:white; font-size:18px;">
+                Venha conhecer nossas pastorais, aqui você pode participar mais ativamente da comunidade e da Igreja. Cada pastoral tem seu propósito único dentro da Igreja e da comunidade.
+                Gostou de algum grupo? Se sentiu interessado? Venha conhecer, a Igreja está te esperando.
+            </p>
+        </div>
+    </div>
+
+<div class="container-fluid" id="pastorais-header">
+</div>
+
+<div class="container">
+    @if (Request.IsAuthenticated) {
+        <p>
+            <br />
+            <a href="~/CapelaGroups/Create" class="btn btn-primary">Adicionar Nova Pastoral</a>
+        </p>
+    }
+    <br />
+
+    <div class="row">
+        @foreach (var item in Model) {
+            <div class="col-xs-12 col-md-4">
+                <div class="thumbnail">
+                    <div id="limited-caption" class="caption" style="padding-top:0px; padding-bottom:0px; margin-bottom:0px; margin-top:0px;">
+                        <a style="color:#203041" href="~/pastorais/detalhes/@item.Name"><h3>@item.Name</h3></a>
+
+                    </div>
+                    <div id="limited-photo">
+                        <a style="color:#203041" href="~/pastorais/detalhes/@item.Name"><img id="photo" src="data:image/png;base64,@System.Convert.ToBase64String(item.Photo)" /></a>
+                    </div>
+
+                    <div class="caption">
+                        <div class="div-description">
+                            <p>
+                                @item.Title 
+                                <a style="color:#ca2b00" href="~/pastorais/detalhes/@item.Name">Leia Mais...</a>
+                            </p>
+                            <p>
+                                @if (Request.IsAuthenticated) {
+                                    <a href="~/CapelaGroups/Edit/@item.Id" class="btn btn-warning" role="button">Editar</a>
+                                    <a href="~/CapelaGroups/Delete/@item.Id" class="btn btn-danger" role="button">Deletar</a>
+                                }
+                            </p>
+                        </div>
+                        <div>
+                            
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

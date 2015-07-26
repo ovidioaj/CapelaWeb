@@ -1,0 +1,41 @@
+﻿<div class="container-fluid" id="bible-header-container">
+    <div class="container">
+        <h1 id="pastoral-h1" style="color:white;">Bíblia Online</h1>
+        <p style="color:white; font-size:18px;">
+            Nós trazemos a Bíblia Online para você acompanhar a palavra de Deus de um forma totalmente interativa. É muito fácil de usar, selecione o capítulo desejado e comecer já a ler.
+            Caso você não encontre, basta apenas digitar o trecho desejado no campo abaixo e pesquisar. Qualquer dúvida, é só clicar em "Como Pesquisar". Tenha uma boa leitura!
+        </p>
+    </div>
+</div>
+<div class="container-fluid" id="bible-header">
+
+</div>
+
+
+<div class="container">
+    <br />
+
+    <div id="iGugaBibleContainer"><a href="http://www.iguga.org">http://www.iguga.org</a></div>
+    <script type="text/javascript" src="http://www.iguga.org/js/igpostmessage.js"></script>
+    <script type="text/javascript">
+        /*<![CDATA[*/
+        window.onload = function () {
+            /* Link da Bíblia Online iGuga Personalizada */
+            strBibleCustomLink = 'http://www.iguga.org/bible/searchFrame/ID/1612dca508867f6102edca7d9175281a';
+
+            strSource = strBibleCustomLink + '?fromUrl=' + encodeURIComponent(document.location.href);
+
+            document.getElementById("iGugaBibleContainer").innerHTML = '<iframe id="iGugaBibleFrame" src="' + strSource + '" style="height: 1000px; width: 100%;" scrolling="no" frameborder="0" allowtransparency="true"></iframe>';
+        }
+        igPostMessage.receiveMessage(function (event) {
+            if ((!isNaN(event.data)) && (event.data > 0)) {
+                document.getElementById("iGugaBibleFrame").style.height = '100%';
+                document.getElementById("iGugaBibleContainer").style.height = event.data + 'px';
+            }
+        }, 'http://www.iguga.org');
+        /*]]>*/
+    </script>
+    @*<div>
+            <iframe src="http://www.internautascristaos.com/bibliaonline" width="100%" height="1200" frameborder="0" scrolling="auto"></iframe>
+        </div>*@
+</div>

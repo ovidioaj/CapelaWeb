@@ -1,0 +1,16 @@
+﻿@model Capela.Web.Entities.CapelaGroup
+
+<div id="pastoral-header" class="container-fluid">
+    <h1 id="pastoral-h1">@Model.Name</h1>
+</div>
+
+<div class="container" style="background-color:white;">
+    <br />
+    <div>
+        @Html.Raw(HttpUtility.HtmlDecode(@Model.Text))
+    </div>
+    <p>
+        <a style="font-size:18px;" href="~/pastorais">Voltar</a>
+    </p>
+
+</div>

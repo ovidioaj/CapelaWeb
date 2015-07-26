@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="http://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Alegreya:700" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="wrap">
+        <div class="navbar navbar-default navbar-fixed-top" style="min-height:75px; opacity:1;">
+            <div class="container">
+                <div class="navbar-header" style="padding-top:5px;">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div style="display:inline-block;">
+                        <a href="/" class="pull-left">
+                            <img id="logo" style="vertical-align:middle; margin:2px;" class="img-responsive" src="~/Resources/new logo.png" title="title" alt="additional title" />
+                        </a>
+                        <a id="menu-title" style="vertical-align:middle; display:inline-block; margin-top:30px;align-content:center;" href="/"><p style="font-size:16px; color:white;">Paróquia Nossa Senhora dos Canaviais</p></a>
+                    </div>
+                </div>
+
+                <div class="navbar-collapse collapse" style="padding-top:17px; ">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Pastorais", "Index", "CapelaGroups")</li>
+                        <li>@Html.ActionLink("Eventos", "Index", "CapelaEvents")</li>
+                        <li>@Html.ActionLink("Agenda", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Bíblia Online", "OnlineBible", "Home")</li>
+                        <li>@Html.ActionLink("Sobre Nós", "About", "Home")</li>
+                        <li>@Html.Partial("_LoginPartial")</li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Begin page content -->
+        <div class="body-content">
+            @RenderBody()
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <footer id="footer" style="padding-top:15px; padding-bottom:5px;">
+                <div class="container" style="margin-bottom:0px;">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h4 class="light-foreground">Páginas do Facebook</h4>
+                            <br />
+                            <a href="https://www.facebook.com/pages/Par%C3%B3quia-Nossa-Senhora-dos-Canaviais/592489587490317?fref=ts">Paróquia Nossa Senhora dos Canaviais</a>
+                            <br />
+                            <a href="https://www.facebook.com/pages/Padre-Anderson-Xavier-Lopes/193682730721732">Padre Anderson</a>
+                        </div>
+                        <div class="col-md-4">
+                            <h4 class="light-foreground">Capelas Vizinhas</h4>
+                            <br />
+                            <a href="">Capela Santa Clara</a>
+                            <br />
+                            <a href="">Capela Santa Maria Madalena</a>
+                            <br />
+                            <a href="">Capela Nossa Senhora dos Pobres</a>
+                        </div>
+                        <div class="col-md-4">
+                            <h4 class="light-foreground">Endereço da Paroquia</h4>
+                            <br />
+                            <address class="light-foreground">
+                                Rua Izidoro Faccio, 436 – Adelino Simioni<br />
+                                Ribeirão Preto - São Paulo<br />
+                                <abbr title="Phone">P:</abbr>
+                                <span class="footer-element">
+                                    (16) 3974 - 1034
+                                </span>
+                            </address>
+                            <address>
+                                <strong class="light-foreground">Email de Contato:</strong>   <a  href="mailto:paroquianscanaviais@gmail.com">paroquianscanaviais@gmail.com</a><br />
+                            </address>
+                        </div>
+                    </div>
+                    <hr style="margin:0px; padding:0px; padding-top:5px;" id="white-hr">
+                    <p style="padding-top:7px; padding-bottom:5px;" class="text-center"><span style="color:#808080" >© 2015 - Paróquia Nossa Senhora dos Canaviais. Todos os direitos reservados.
+                        <a class="light-foreground" href="~/Account/Login">login</a></span></p>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <script>
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 75) {
+                $('.navbar').css('opacity', '1.0');
+            }
+            else {
+                $('.navbar').css('opacity', '1');
+            }
+        }, false);
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            var url = window.location;
+            $('.navbar .nav').find('.active').removeClass('active');
+            $('.navbar .nav li a').each(function () {
+                if (this.href == url) {
+                    $(this).parent().addClass('active');
+                }
+            });
+        });
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
