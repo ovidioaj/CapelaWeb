@@ -1,6 +1,6 @@
-﻿. {
+﻿/*. {
     margin:0px;
-}
+}*/
 
 containter {
     background-color:white;
@@ -117,7 +117,7 @@ p {
     font-size: 15px;
     line-height: 23px;
     margin: 0 0 20px 0;
-}}
+}
 
 
 #map {
@@ -313,7 +313,7 @@ container-fluid {
 
 #pastorais-header {
     padding-top:400px;
-    background-image:url('../Resources/castle-background.png');
+    background-image:url('../Resources/castle-background2.jpg');
     min-height:300px;
     height:300px;
     position:relative;
@@ -346,7 +346,7 @@ container-fluid {
 
 #about-header {
     padding-top:420px;
-    background-image:url('../Resources/grace church.bmp');
+    background-image:url('../Resources/grace church2.jpg');
     min-height:270px;
     height:270px;
     position:relative;
@@ -362,7 +362,7 @@ container-fluid {
 
 #bible-header {
     padding-top:420px;
-    background-image:url('../Resources/book-flower-picked.png');
+    background-image:url('../Resources/book-flower-picked2.jpg');
     min-height:270px;
     height:270px;
     position:relative;
@@ -371,7 +371,7 @@ container-fluid {
 
 #agenda-header {
     padding-top:420px;
-    background-image:url('../Resources/agenda 3.png');
+    background-image:url('../Resources/ChristChurchRiverdaleFBInt.jpg');
     min-height:270px;
     height:270px;
     position:relative;
