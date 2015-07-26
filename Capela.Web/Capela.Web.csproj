@@ -309,6 +309,9 @@
     <Content Include="Resources\book-flower-picked2.jpg" />
     <Content Include="Resources\castle-background2.jpg" />
     <Content Include="Resources\ChristChurchRiverdaleFBInt.jpg" />
+    <Content Include="Resources\Family-Worship-Background.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\grace church2.jpg" />
     <Content Include="Resources\new logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
