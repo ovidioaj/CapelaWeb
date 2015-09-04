@@ -239,8 +239,8 @@ container-fluid {
     opacity:0.7;
     position:absolute;
     left:0;
-    min-height:400px;
-    height:400px;
+    min-height:340px;
+    height:340px;
     right:0;
     padding-top:50px;
     margin-left:auto;
@@ -254,8 +254,8 @@ container-fluid {
     opacity:0.7;
     position:absolute;
     left:0;
-    min-height:330px;
-    height:400px;
+    min-height:280px;
+    height:350px;
     right:0;
     margin-left:auto;
     margin-right:auto;
@@ -266,11 +266,11 @@ container-fluid {
 }
 
 #about-header-container {
-    opacity:0.6;
+    opacity:0.7;
     position:absolute;
     left:0;
-    min-height:420px;
-    height:420px;
+    min-height:370px;
+    height:370px;
     right:0;
     margin-left:auto;
     margin-right:auto;
@@ -282,7 +282,7 @@ container-fluid {
 
 
 #bible-header-container {
-    opacity:0.6;
+    opacity:0.8;
     position:absolute;
     left:0;
     min-height:330px;
@@ -297,11 +297,11 @@ container-fluid {
 }
 
 #agenda-header-container {
-    opacity:0.7;
+    opacity:0.8;
     position:absolute;
     left:0;
-    min-height:330px;
-    height:420px;
+    min-height:280px;
+    height:370px;
     right:0;
     margin-left:auto;
     margin-right:auto;
@@ -312,7 +312,7 @@ container-fluid {
 }
 
 #pastorais-header {
-    padding-top:400px;
+    padding-top:340px;
     background-image:url('../Resources/castle-background2.jpg');
     min-height:300px;
     height:300px;
@@ -329,7 +329,7 @@ container-fluid {
 }
 
 #events-header {
-    padding-top:400px;
+    padding-top:350px;
     background-image:url('../Resources/Family-Worship-Background.jpg');
     min-height:300px;
     height:300px;
@@ -345,7 +345,7 @@ container-fluid {
 }
 
 #about-header {
-    padding-top:420px;
+    padding-top:370px;
     background-image:url('../Resources/grace church2.jpg');
     min-height:270px;
     height:270px;
@@ -370,7 +370,7 @@ container-fluid {
 }
 
 #agenda-header {
-    padding-top:420px;
+    padding-top:370px;
     background-image:url('../Resources/ChristChurchRiverdaleFBInt.jpg');
     min-height:270px;
     height:270px;
@@ -396,7 +396,7 @@ container-fluid {
         line-height: 46px;
         font-size: 42px;
         margin: 0 0 40px 0;*/
-        padding-top: 120px;
+        padding-top: 100px;
         /*align-content: center;
         color: white;*/
     }
@@ -473,6 +473,11 @@ container-fluid {
 }
 
  @media only screen and (max-width : 480px) {
+        
+        h1 {
+            padding-top:75px;
+        }
+        
         #menu-title {
             visibility:hidden;
         }
@@ -482,7 +487,7 @@ container-fluid {
         }
 
         #about-header {
-            padding-top:630px;
+            padding-top:550px;
         }
 
         #pastoral-header-container {
@@ -490,17 +495,16 @@ container-fluid {
         }
 
         #about-header-container {
-            height:630px;
-        }
-
-        .navbar {
-            max-height:100px;
-            height:100px;
+            height:550px;
         }
 
         #logo {
             position:absolute;
             top:5px;
             left:0px;
+            min-height:70px;
+            max-height:70px;
+            max-width:70px;
+            min-width:70px;
         }
 }

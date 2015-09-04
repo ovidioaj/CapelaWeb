@@ -13,30 +13,29 @@
 </div>
 
 <div class="container">
-    <br />
-
-    @if (Request.IsAuthenticated) {
-        <p>
-            <a class="btn btn-main" href="~/CapelaEvents/Create">Adicionar Novo Evento</a>
-            @*@Html.ActionLink("Create New", "Create")*@
-        </p>
-    }
-
-    @foreach (var item in Model) {
+    <div class="row">
         <br />
-        <div class="img-responsive">
-            @Html.Raw(HttpUtility.HtmlDecode(@item.Text))
-        </div>
 
-        if (Request.IsAuthenticated) {
-            <br />
+        @if (Request.IsAuthenticated) {
             <p>
-                <a href="~/CapelaEvents/Edit/@item.Id" class="btn btn-warning" role="button">Editar</a>
-                <a href="~/CapelaEvents/Delete/@item.Id" class="btn btn-danger" role="button">Deletar</a>
+                <a class="btn btn-main" href="~/CapelaEvents/Create">Adicionar Novo Evento</a>
+                @*@Html.ActionLink("Create New", "Create")*@
             </p>
         }
-    }
-    <p>
-        <a style="font-size:18px;" href="~/pastorais">Voltar</a>
-    </p>
+
+        @foreach (var item in Model) {
+            <br />
+            <div class="img-responsive col-md-offset-3 col-md-6 col-xs-12 fb-comments" data-width="100%">
+                @Html.Raw(HttpUtility.HtmlDecode(@item.Text))
+                
+                @if (Request.IsAuthenticated) {
+                <br />
+                <p>
+                    <a href="~/CapelaEvents/Edit/@item.Id" class="btn btn-warning" role="button">Editar</a>
+                    <a href="~/CapelaEvents/Delete/@item.Id" class="btn btn-danger" role="button">Deletar</a>
+                </p>
+                }
+            </div>
+        }
+    </div>
 </div>
