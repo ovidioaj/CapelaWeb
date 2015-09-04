@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace Capela.Web
 {
-        public class RouteConfig
+    public class RouteConfig
         {
                 public static void RegisterRoutes(RouteCollection routes)
                 {
@@ -26,6 +22,12 @@ namespace Capela.Web
                         );
 
                         routes.MapRoute(
+                            name: "Eventos",
+                            url: "eventos",
+                            defaults: new { controller = "CapelaEvents", action = "Index" }
+                        );
+
+                        routes.MapRoute(
                             name: "Agenda",
                             url: "agenda",
                             defaults: new { controller = "Home", action = "Contact" }
@@ -33,7 +35,7 @@ namespace Capela.Web
 
                         routes.MapRoute(
                             name: "Mapa",
-                            url: "sobrenos",
+                            url: "quemsomos",
                             defaults: new { controller = "Home", action = "About" }
                         );
 
