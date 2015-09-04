@@ -1,41 +1,22 @@
 ﻿@model Capela.Web.Entities.CapelaEvents
 
-@{
-    ViewBag.Title = "Edit";
-}
+<div class="container-fluid header-photo">
+    <h1>Editando Evento</h1>
+</div>
 
-<h2>Edit</h2>
-
-@using (Html.BeginForm())
-{
+@using (Html.BeginForm("Edit", "CapelaEvents", FormMethod.Post, new { enctype = "multipart/form-data" })) {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>CapelaEvents</h4>
+    <div class="form-horizontal container">
+        <h4>Editando Evento da Paroquia</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Text, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Text, htmlAttributes: new { @id = "Text", @name = "Text" })
                 @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -43,19 +24,54 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
+                <label>
+                    <label id="filename">
+
+                    </label>
+                    <label class="btn btn-helper" for="my-file-selector">
+                        <input id="my-file-selector" type="file" style="display:none;" name="image">
+                        Procurar
+                    </label>
+                    @if (ViewBag.PhotoWarning) {
+                            <br />
+                            <span class="text-danger field-validation-error" data-valmsg-replace="true" data-valmsg-for="file"><span>A foto selecionada é inválida.</span></span>
+
+                    }
+                </label>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Salvar Alterações" class="btn btn-default" />
             </div>
+        </div>
+        <div>
+            @Html.ActionLink("Cancelar e voltar para os Eventos", "Index")
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/ckeditor/adapters/jquery.js"></script>
+
+    <script>
+            $(document).ready(function () {
+                $('#my-file-selector').change(function () {
+                    var str = $('#my-file-selector').val();
+                    var pieces = str.split(/[\s,]+/);
+                    $("#filename").empty();
+                    $("#filename").text(pieces[pieces.length -1]);
+                });
+            });
+    </script>
+
+    <script>
+            $(function () {
+                $('#Text').ckeditor();
+            });
+    </script>
+}
